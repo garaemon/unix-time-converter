@@ -1,5 +1,6 @@
 import Header from './components/Header';
 import Converter from './components/Converter';
+import UrlUsage from './components/UrlUsage';
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
         <main className="mt-8">
           <Converter />
         </main>
+        <UrlUsage />
       </div>
     </div>
   );
