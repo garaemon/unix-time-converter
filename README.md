@@ -1,6 +1,10 @@
 # Unix Time Converter
 
+[Live Demo](https://garaemon.github.io/unix-time-converter/)
+
 A modern, user-friendly tool to convert Unix timestamps to human-readable dates and vice versa. Built with React, TypeScript, and Tailwind CSS.
+
+![Screenshot](screenshot.png)
 
 ## Features
 
