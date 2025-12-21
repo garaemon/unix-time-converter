@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
-import { format } from 'date-fns';
+import { format, formatDistanceToNow } from 'date-fns';
 import { toZonedTime } from 'date-fns-tz';
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
-import { ArrowDown, Copy, RefreshCw, Calendar, Clock } from 'lucide-react';
+import { ArrowDown, Copy, RefreshCw, Calendar, Clock, Timer } from 'lucide-react';
 import { TIMEZONES } from '../constants/timezones';
 import { detectUnit, normalizeToMillis, formatUnit, type TimeUnit } from '../utils/time';
 import { useUrlParams } from '../hooks/useUrlParams';
@@ -132,6 +132,18 @@ export default function Converter() {
                      <Copy className="w-4 h-4" />
                    </button>
                  )}
+              </div>
+            </div>
+
+            <div className="border-t border-slate-200 dark:border-slate-700 my-2"></div>
+
+            <div>
+              <div className="flex items-center gap-2 mb-1">
+                <Timer className="w-3 h-3 text-slate-500" />
+                <div className="text-xs text-slate-500 uppercase tracking-wider font-semibold">Relative Time</div>
+              </div>
+              <div className="font-mono text-lg text-purple-600 dark:text-purple-400">
+                {parsedDate ? formatDistanceToNow(parsedDate, { addSuffix: true }) : '-'}
               </div>
             </div>
             
