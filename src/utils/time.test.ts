@@ -17,6 +17,14 @@ describe('detectUnit', () => {
   it('should detect nanoseconds', () => {
     expect(detectUnit(1700000000000000000)).toBe('ns');
   });
+
+  it('should detect seconds for float timestamps', () => {
+    expect(detectUnit(1679876543.123)).toBe('s');
+  });
+
+  it('should detect seconds for small floats', () => {
+    expect(detectUnit(1.5)).toBe('s');
+  });
 });
 
 describe('normalizeToMillis', () => {
@@ -34,5 +42,13 @@ describe('normalizeToMillis', () => {
 
   it('should convert nanoseconds to millis', () => {
     expect(normalizeToMillis(1000000000, 'ns')).toBe(1000);
+  });
+
+  it('should convert float seconds to millis', () => {
+    expect(normalizeToMillis(1679876543.123, 's')).toBe(1679876543123);
+  });
+
+  it('should convert small float seconds to millis', () => {
+    expect(normalizeToMillis(1.5, 's')).toBe(1500);
   });
 });

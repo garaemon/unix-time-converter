@@ -42,8 +42,8 @@ export default function Converter() {
   
   // Logic to parse timestamp input
   if (timestampInput) {
-    const cleanInput = timestampInput.replace(/[^0-9]/g, '');
-    const num = parseInt(cleanInput, 10);
+    const cleanInput = timestampInput.replace(/[^0-9.]/g, '');
+    const num = parseFloat(cleanInput);
     if (!isNaN(num)) {
        // If unit changed, update detected unit
        const newDetected = detectUnit(num);
