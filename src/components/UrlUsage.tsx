@@ -1,6 +1,10 @@
 import { Info } from 'lucide-react';
 
 export default function UrlUsage() {
+  const baseUrl = typeof window !== 'undefined'
+    ? window.location.origin + window.location.pathname
+    : 'https://unix-time.example.com/';
+
   return (
     <div className="mt-12 p-6 bg-slate-100 dark:bg-slate-800/50 rounded-xl border border-slate-200 dark:border-slate-700">
       <div className="flex items-center gap-2 mb-4 text-slate-700 dark:text-slate-200 font-semibold">
@@ -38,12 +42,12 @@ export default function UrlUsage() {
             <div key={i} className="text-xs">
               <span className="text-slate-400 mr-2">- {ex.desc}:</span>
               <a 
-                href={`${typeof window !== 'undefined' ? window.location.origin : ''}/${ex.params}`}
+                href={`${baseUrl}${ex.params}`}
                 className="text-blue-600 dark:text-blue-400 hover:underline bg-slate-200 dark:bg-slate-700 px-1 rounded font-mono break-all"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                {typeof window !== 'undefined' ? window.location.origin : 'https://unix-time.example.com'}/{ex.params}
+                {baseUrl}{ex.params}
               </a>
             </div>
           ))}
